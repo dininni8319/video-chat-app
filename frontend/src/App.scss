@@ -6,6 +6,7 @@ $color4: white;
 $color5: #F9F9F9;
 $color6: #0F203A;
 
+
 // CSS Flex Box 
 // *Arguments*
 // pos : it defines the justify content
@@ -30,4 +31,36 @@ $color6: #0F203A;
 
 @mixin transition($pty) {
   transition: $pty 240ms ease-out;
+}
+
+body,html{ 
+  width: 100vw;
+  height: 100vh;
+ text-align: center;
+ background-color: $color1;
+ color: $color4;
+}
+
+.App{
+    @include flexbox(column,center);
+    align-items: unset;
+    background-color: $color1;
+    overflow: hidden;
+}
+
+.error {
+  background-color: $color1;
+  width: 100%;
+  height: 100vh;
+  @include flexbox(column,center);
+
+  img {
+    width: 50%;
+    max-width: 500px;    
+  }
+}
+
+#root{
+  width: 100%;
+  height: 100%;   
 }
