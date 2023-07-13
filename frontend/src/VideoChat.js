@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import StartForm from './startForm/startForm'
-import Room from './Room'
+import Room from './room/index'
 import Loader from './loader'
+import Reconnecting from './reconnecting'
 import errorImg from './assets/404.png'
 
 const VideoChat = () => {
@@ -10,6 +11,7 @@ const VideoChat = () => {
   const [ token, setToken ] = useState(null)
   const [ error, setError ] = useState(false) 
   const [ loading, setLoading ] = useState(false)
+  const [ reconnecting, setReconnecting ] = useState(false)
   const [ isMobile, setIsMobile ] = useState(false)
   
   let appRef = useRef()
@@ -38,7 +40,6 @@ const VideoChat = () => {
       setError(true)
       return
     }  
-
     const jwt = await response.json()
     setToken(jwt.token)
     setLoading(false)
@@ -49,12 +50,11 @@ const VideoChat = () => {
   },[])
 
   useEffect(() => {
-    if (appRef.current.offsetWidth <= 1360) {
+    if (appRef?.current?.offsetWidth <= 1360) {
       setIsMobile(true);
     }
   }, [])
   
-
   let render 
   if (error) {
     render = (  
@@ -64,14 +64,22 @@ const VideoChat = () => {
     )
   } else if (!token && loading) {
     render = <Loader type="Connecting" />
-  }
-   else if (token) {
+  } else if (reconnecting) {
+    render = (
+      <Reconnecting 
+        handleSubmit={handleSubmit}
+        setToken={setToken} 
+      />
+    )
+  } else if (token) {
     render = (
       <Room 
         roomName={roomName}
         token={token}
         handleLogout={handleLogout}
         isMobile={isMobile}
+        setReconnection={setReconnecting}
+        setToken={setToken}
       />
     )
   } else {

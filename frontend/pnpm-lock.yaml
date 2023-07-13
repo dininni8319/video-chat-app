@@ -38,8 +38,8 @@ dependencies:
     specifier: ^1.63.6
     version: 1.63.6
   twilio-video:
-    specifier: ^2.20.0
-    version: 2.20.0
+    specifier: ^2.27.0
+    version: 2.27.0
   util:
     specifier: ^0.12.5
     version: 0.12.5
@@ -2525,10 +2525,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /@twilio/webrtc@4.5.2:
-    resolution: {integrity: sha512-UPcepsAosWCnKvao28G+ErYX/ZLNqKKd9OzJx1LZ1DGkDyKRg2pHSO0PJ0bCMf7pu3Kv5ns0DYwxX3XCT6ZIlw==}
-    dev: false
-
   /@types/aria-query@5.0.1:
     resolution: {integrity: sha512-XTIieEY+gvJ39ChLcB4If5zHtPxt3Syj5rgZR+e1ctpmK8NjPf0zFqsz4JpLJT0xla9GFDKjy8Cpu331nrmE1Q==}
     dev: false
@@ -3579,13 +3575,6 @@ packages:
       babel-plugin-transform-react-remove-prop-types: 0.4.24
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /backoff@2.5.0:
-    resolution: {integrity: sha512-wC5ihrnUXmR2douXmXLCe5O3zg3GKIyvRi/hi58a/XyRxVI+3/yM0PYueQOZXPXQ9pxBislYkw+sF9b7C/RuMA==}
-    engines: {node: '>= 0.6'}
-    dependencies:
-      precond: 0.2.3
     dev: false
 
   /balanced-match@1.0.2:
@@ -8554,11 +8543,6 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /precond@0.2.3:
-    resolution: {integrity: sha512-QCYG84SgGyGzqJ/vlMsxeXd/pgL/I94ixdNFyh1PusWmTCyVfPJjZ1K1jvHtsbfnXQs2TSkEP2fR7QiMZAnKFQ==}
-    engines: {node: '>= 0.6'}
-    dev: false
-
   /prefix-style@2.0.1:
     resolution: {integrity: sha512-gdr1MBNVT0drzTq95CbSNdsrBDoHGlb2aDJP/FoY+1e+jSDPOb1Cv554gH2MGiSr2WTcXi/zu+NaFzfcHQkfBQ==}
     dev: false
@@ -10019,12 +10003,12 @@ packages:
       typescript: 5.1.6
     dev: false
 
-  /twilio-video@2.20.0:
-    resolution: {integrity: sha512-vk4xiSWN9LsthOG7hfalE7y/tBZrHnGGglY8Of3XRlWurwP2NJhClHGo5E/AHC2e/2WqGRyKDrggEeymj9dovA==}
+  /twilio-video@2.27.0:
+    resolution: {integrity: sha512-hdiYOKuujtLdG7A8Ae/8qeJWfL/zZXVTrh79fWq7d/QAgZ966R7QJdWkTAxdairhlhGLCu4cN4jOBxQ1Bqe9MQ==}
     engines: {node: '>=0.12'}
     dependencies:
-      '@twilio/webrtc': 4.5.2
-      backoff: 2.5.0
+      events: 3.3.0
+      util: 0.12.5
       ws: 7.5.9
       xmlhttprequest: 1.8.0
     transitivePeerDependencies:

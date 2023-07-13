@@ -9,7 +9,7 @@ const Participant = ({ participant, handleFullScreen }) => {
   const audioRef = useRef();
 
   const trackpubsToTracks = (trackMap) =>
-    Array.from(trackMap.values())
+    Array.from(trackMap?.values())
       .map((publication) => publication.track)
       .filter((track) => track !== null);
 
@@ -27,9 +27,9 @@ const Participant = ({ participant, handleFullScreen }) => {
 
     const trackUnsubscribed = (track) => {
       if (track.kind === "video") {
-        setVideoTracks((videoTracks) => videoTracks.filter((v) => v !== track));
+        setVideoTracks((videoTracks) => videoTracks?.filter((v) => v !== track));
       } else if (track.kind === "audio") {
-        setAudioTracks((audioTracks) => audioTracks.filter((a) => a !== track));
+        setAudioTracks((audioTracks) => audioTracks?.filter((a) => a !== track));
       }
     };
 
